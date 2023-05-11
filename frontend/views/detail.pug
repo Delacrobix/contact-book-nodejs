@@ -1,0 +1,46 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  title Title
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx' crossorigin='anonymous')
+  link(th:href='./scss/detail.css' rel='stylesheet')
+  
+nav#menu-container.navbar.navbar-expand-lg.bg-body-tertiary
+  .container-fluid
+    #navbarNav.collapse.navbar-collapse
+      ul.navbar-nav
+        li.nav-item
+          a.nav-link(href='/') Nuevo contacto
+        li.nav-item
+          a.nav-link(href='/contacts') Lista de contactos
+.tittle-container
+  h1 Informaci&oacute;n de contacto
+#contact-container
+  .card-contact
+    .card.text-center
+      .card-header
+        ul.nav.nav-pills.card-header-pills
+          li.nav-item
+            a#edit-btn.btn.btn-outline-info(th:href='@{edit/} + ${contact.id}') Editar
+          li.nav-item
+            a#delete-btn.btn.btn-outline-info(type='input') Borrar
+      .card-body
+        div
+          label.fw-bold ID: 
+          label#out-id.text-center(th:text='${contact.id}')
+        div
+          label.fw-bold Nombre: 
+          label.text-center(th:text='${contact.name}')
+        div
+          label.fw-bold Tel&eacute;fono: 
+          label.text-center(th:text='${contact.phone_number}')
+        div
+          label.fw-bold correo: 
+          label.text-center(th:text='${contact.email}')
+        div
+          label.fw-bold Fecha de nacimiento: 
+          label.text-center(th:text='${contact.birth_date}')
+        a#return-button.btn.btn-outline-info(href='/contacts') Regresar
+
+script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js' integrity='sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa' crossorigin='anonymous')
+script(th:src='./js/detail.js')

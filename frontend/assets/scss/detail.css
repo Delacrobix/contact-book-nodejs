@@ -1,0 +1,71 @@
+body {
+  background-color: rgb(52, 47, 61);
+}
+
+#menu-container {
+  background-color: rgb(41, 37, 48);
+}
+#menu-container .navbar-nav.me-auto.mb-2.mb-lg-0 {
+  font-size: 20px;
+}
+#menu-container div ul li {
+  padding-left: 5em;
+}
+#menu-container div ul li a {
+  color: #9b9b9b;
+}
+#menu-container div ul li a:hover {
+  border-radius: 10px;
+  color: #ccc;
+}
+
+#contact-container {
+  display: grid;
+  height: 100%;
+  align-content: center;
+  justify-content: center;
+}
+#contact-container .card-contact {
+  width: 600px;
+}
+#contact-container .card-contact #return-button {
+  margin-top: 15px;
+  color: #362e3b;
+  background-color: rgba(90, 90, 90, 0);
+  border: solid 1px rgb(90, 90, 90);
+}
+#contact-container .card-contact #delete-btn {
+  background-color: rgba(106, 176, 241, 0);
+  border: 1px solid #9b9b9b;
+  color: #362e3b;
+}
+#contact-container .card-contact #return-button:hover {
+  background-color: rgb(173, 173, 173);
+  color: black;
+}
+#contact-container .card-contact #delete-btn:hover {
+  background-color: rgb(240, 177, 177);
+  color: black;
+}
+#contact-container .card-contact #edit-btn {
+  background-color: rgba(106, 176, 241, 0);
+  border: 1px solid #9b9b9b;
+  color: #362e3b;
+}
+#contact-container .card-contact #edit-btn:hover {
+  background-color: rgb(203, 166, 224);
+  color: black;
+}
+#contact-container .nav-item {
+  margin-right: 8px;
+}
+
+.tittle-container {
+  display: grid;
+  width: 100%;
+  justify-content: center;
+  color: azure;
+  font-size: 40px;
+  margin-bottom: 20px;
+  margin-top: 15px;
+}/*# sourceMappingURL=detail.css.map */
