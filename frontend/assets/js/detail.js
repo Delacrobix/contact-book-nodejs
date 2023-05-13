@@ -1,11 +1,9 @@
-id = document.getElementById('out-id').textContent;
-delete_btn = document.getElementById('delete-btn');
+import { deleteContact } from "./apiRequests";
 
-delete_btn.addEventListener ('click', () => {
+id = document.getElementById("out-id").textContent;
+delete_btn = document.getElementById("delete-btn");
 
-    fetch(`/contact/${id}`, {
-        method: 'DELETE'}
-    )
-    .then(alert('Borrado con éxito'));
-    window.location.href = `/contacts`;
+delete_btn.addEventListener("click", async () => {
+  await deleteContact(id);
+  window.location.href = `/contacts`;
 });

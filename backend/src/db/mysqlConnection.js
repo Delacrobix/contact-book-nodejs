@@ -8,8 +8,6 @@ const environments = {
   DATABASE: process.env.DATABASE,
 };
 
-console.log(environments);
-
 export const db = createPool({
   user: environments.USER,
   password: environments.PASSWORD,

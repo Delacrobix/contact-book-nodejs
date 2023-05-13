@@ -1,9 +1,6 @@
 import { GraphQLID, GraphQLList, GraphQLString } from "graphql";
 import { ContactType } from "./types";
-import { getAll } from "../controllers/contactsControllers";
-//import modelsExported from "../models/exports";
-
-// const { User, Rhythm, Song } = modelsExported;
+import { getAll, findById } from "../controllers/contactsControllers";
 
 export const test = {
   type: GraphQLString,
@@ -21,14 +18,14 @@ export const contactList = {
   },
 };
 
-// export const song = {
-//   type: GraphQLString,
-//   description: "Returns a single song by id",
-//   args: {
-//     id: { type: GraphQLID },
-//   },
-//   async resolve(_, args) {
-//     const song = await Song.findById(args.id);
-//     return song;
-//   },
-// };
+export const contact = {
+  type: GraphQLString,
+  description: "Returns a single contact by id",
+  args: {
+    id: { type: GraphQLID },
+  },
+  async resolve(_, args) {
+    const contact = await findById(args.id);
+    return contact;
+  },
+};

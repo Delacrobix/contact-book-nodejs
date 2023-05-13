@@ -8,6 +8,6 @@ export const ContactType = new GraphQLObjectType({
     name: { type: GraphQLString },
     phoneNumber: { type: GraphQLString },
     email: { type: GraphQLString },
-    birthDate: { type: GraphQLString }
+    birthDate: { type: GraphQLString },
   },
 });
