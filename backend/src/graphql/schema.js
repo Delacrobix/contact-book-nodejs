@@ -1,20 +1,24 @@
-import { GraphQLSchema, GraphQLObjectType } from "graphql";
-import { test, contactList } from "./queries";
-import { testMutation, insert } from "./mutations";
+import { GraphQLSchema, GraphQLObjectType } from 'graphql';
+import { contactList, getContact } from './queries';
+import { insert, editById, deleteById } from './mutations';
 
 const QueryType = new GraphQLObjectType({
-  name: "QueryType",
-  description: "The query type",
+  name: 'QueryType',
+  description: 'The query type',
   fields: {
-    test,
     contactList,
+    getContact,
   },
 });
 
 const MutationType = new GraphQLObjectType({
-  name: "MutationType",
-  description: "The mutation type",
-  fields: { testMutation, insert },
+  name: 'MutationType',
+  description: 'The mutation type',
+  fields: {
+    insert,
+    editById,
+    deleteById,
+  },
 });
 
 export const schema = new GraphQLSchema({

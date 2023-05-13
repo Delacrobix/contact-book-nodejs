@@ -1,16 +1,14 @@
-import { GraphQLID, GraphQLList, GraphQLString } from "graphql";
-import { ContactType } from "./types";
-import { getAll, findById } from "../controllers/contactsControllers";
-
-export const test = {
-  type: GraphQLString,
-  description: "Returns a string",
-  resolve: () => "This is a test",
-};
+import { GraphQLID, GraphQLList, GraphQLString } from 'graphql';
+import { ContactType } from './types';
+import {
+  getAll,
+  findContactById,
+  convertSQLDateToString,
+} from '../controllers/contactsControllers';
 
 export const contactList = {
   type: new GraphQLList(ContactType),
-  description: "Return a list of contacts",
+  description: 'Return a list of contacts',
   async resolve() {
     const contacts = await getAll();
 
@@ -18,14 +16,18 @@ export const contactList = {
   },
 };
 
-export const contact = {
-  type: GraphQLString,
-  description: "Returns a single contact by id",
+export const getContact = {
+  type: ContactType,
+  description: 'Returns a single contact by id',
   args: {
     id: { type: GraphQLID },
   },
   async resolve(_, args) {
-    const contact = await findById(args.id);
+    const [contact] = await findContactById(args.id);
+
+    const stringDate = convertSQLDateToString(contact.birthDate);
+    contact.birthDate = stringDate;
+
     return contact;
   },
 };
