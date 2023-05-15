@@ -1,0 +1,25 @@
+.form-contact {
+  padding: 50px;
+  max-width: 800px;
+}
+.form-contact h4 {
+  color: aliceblue;
+}
+.form-contact .form-control {
+  height: 60px;
+}
+.form-contact .form-submit {
+  margin: 20px;
+  width: 350px;
+  height: 40px;
+  text-align: center;
+  align-content: center;
+  border: 1px solid #ccc;
+  color: #ccc;
+}
+.form-contact .form-submit:hover {
+  background-color: rgb(173, 173, 173);
+  color: black;
+}
+
+/*# sourceMappingURL=form.css.map */

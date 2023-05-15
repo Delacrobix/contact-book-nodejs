@@ -1,0 +1,21 @@
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.row .card-contact-container {
+  padding: 25px;
+  max-width: 350px;
+}
+.row .card-contact-container #detail-btn {
+  margin-top: 5px;
+  background-color: rgba(106, 176, 241, 0);
+  border: 1px solid #9b9b9b;
+  color: #362e3b;
+}
+.row .card-contact-container #detail-btn:hover {
+  background-color: rgb(173, 173, 173);
+  color: black;
+}
+
+/*# sourceMappingURL=card.css.map */

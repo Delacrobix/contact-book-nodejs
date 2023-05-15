@@ -1,0 +1,18 @@
+.menu-container {
+  background-color: rgb(41, 37, 48);
+}
+.menu-container .navbar-nav.me-auto.mb-2.mb-lg-0 {
+  font-size: 20px;
+}
+.menu-container div ul li {
+  padding-left: 5em;
+}
+.menu-container div ul li a {
+  color: #9b9b9b;
+}
+.menu-container div ul li a:hover {
+  border-radius: 10px;
+  color: #ccc;
+}
+
+/*# sourceMappingURL=navBar.css.map */
