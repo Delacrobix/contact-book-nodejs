@@ -1,7 +1,24 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Queries } from '../Controllers/queries/queries';
+import { useQuery } from '@apollo/client';
 
 const Detail = () => {
+  const navigation = useNavigate();
+  const location = useLocation();
+  const { id } = location.state;
+  const { data, loading, error } = useQuery(Queries.findOneQuery(id));
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>ERROR</p>;
+
+  const contact = data.getContact;
+  const { name, phoneNumber, email, birthDate } = contact;
+
+  function handleClick() {
+    navigation('/', { state: { contact } });
+  }
+
   return (
     <div>
       <div className='tittle-container'>
@@ -13,15 +30,20 @@ const Detail = () => {
             <div className='card-header'>
               <ul className='nav nav-pills card-header-pills'>
                 <li className='nav-item'>
-                  <Link className='btn btn-outline-info' id='edit-btn'>
+                  <p
+                    className='btn btn-outline-info'
+                    id='edit-btn'
+                    onClick={handleClick}
+                  >
                     Edit
-                  </Link>
+                  </p>
                 </li>
                 <li className='nav-item'>
                   <Link
                     className='btn btn-outline-info'
                     id='delete-btn'
                     type='input'
+                    to={'/contacts'}
                   >
                     Delete
                   </Link>
@@ -30,39 +52,25 @@ const Detail = () => {
             </div>
             <div className='card-body'>
               <div>
-                <label className='fw-bold'>ID: </label>
-                <label
-                  className='text-center'
-                  id='out-id'
-                  text='contact.id'
-                ></label>
-              </div>
-              <div>
                 <label className='fw-bold'>Name: </label>
-                <label className='text-center' text='contact.name'></label>
+                <span className='text-center'>{' ' + name}</span>
               </div>
               <div>
                 <label className='fw-bold'>Number: </label>
-                <label
-                  className='text-center'
-                  text='contact.phone_number'
-                ></label>
+                <span className='text-center'>{' ' + phoneNumber}</span>
               </div>
               <div>
                 <label className='fw-bold'>Email: </label>
-                <label className='text-center' text='contact.email'></label>
+                <span className='text-center'>{' ' + email}</span>
               </div>
               <div>
                 <label className='fw-bold'>birth Date: </label>
-                <label
-                  className='text-center'
-                  text='contact.birth_date'
-                ></label>
+                <span className='text-center'>{' ' + birthDate}</span>
               </div>
               <Link
                 className='btn btn-outline-info'
                 id='return-button'
-                href='/contacts'
+                to='/contacts'
               >
                 Return
               </Link>

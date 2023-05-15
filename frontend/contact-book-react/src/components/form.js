@@ -1,7 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-const Form = () => {
+const Form = (props) => {
+  const [text, setText] = useState([]);
+  const { contact } = props;
+
+  useEffect(() => {
+    let content = [];
+    if (contact) {
+      content = [
+        contact.name,
+        contact.phoneNumber,
+        contact.email,
+        contact.birthDate,
+      ];
+
+      setText(content);
+    }
+  }, [contact]);
+
+  function handleChange(event) {
+    const content = [event.target.value];
+    setText(content);
+    console.log('contact: ', contact);
+  }
+
+  // console.log(text);
+
   return (
     <div>
       <form className='container text-center form-contact'>
@@ -11,10 +36,12 @@ const Form = () => {
             className='form-control'
             id='input-name'
             type='text'
-            placeholder='Nombre del contacto'
+            value={text.shift() || ''}
+            onChange={handleChange}
+            placeholder={'Name'}
             aria-label='Username'
             aria-describedby='basic-addon1'
-            required='required'
+            required
           />
         </div>
         <div className='input-group mb-3'>
@@ -22,9 +49,11 @@ const Form = () => {
             className='form-control'
             id='input-number'
             type='number'
+            value={text.shift() || ''}
+            onChange={handleChange}
             placeholder='Numero'
             aria-label='Server'
-            required='required'
+            required
           />
         </div>
         <div className='input-group mb-3'>
@@ -32,9 +61,11 @@ const Form = () => {
             className='form-control'
             id='input-email'
             type='email'
+            value={text.shift() || ''}
+            onChange={handleChange}
             placeholder='Email'
             aria-label='Username'
-            required='required'
+            required
           />
         </div>
         <div className='input-group'>
@@ -43,8 +74,10 @@ const Form = () => {
             className='form-control'
             id='input-date'
             type='date'
+            value={text.shift() || ''}
+            onChange={handleChange}
             aria-label='With textarea'
-            required='required'
+            required
           />
         </div>
         <Link className='btn btn-outline-info form-submit' type='submit'>

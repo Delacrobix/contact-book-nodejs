@@ -29,7 +29,7 @@ const editQuery = (id, contact) => {
 
 const findOneQuery = (id) => {
   return gql`
-    query GetContact {
+    query {
       getContact(id: ${id}) {
         id
         name
