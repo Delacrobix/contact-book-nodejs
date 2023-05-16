@@ -2,30 +2,34 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const Form = (props) => {
-  const [text, setText] = useState([]);
+  const [data, setData] = useState({});
+  const [text, setText] = useState({});
   const { contact } = props;
+  const aux = {
+    name: '',
+    phoneNumber: '',
+    email: '',
+    birthDate: '',
+  };
 
   useEffect(() => {
-    let content = [];
-    if (contact) {
-      content = [
-        contact.name,
-        contact.phoneNumber,
-        contact.email,
-        contact.birthDate,
-      ];
-
-      setText(content);
-    }
+    setData(contact);
   }, [contact]);
 
-  function handleChange(event) {
-    const content = [event.target.value];
-    setText(content);
-    console.log('contact: ', contact);
-  }
+  function handleChange(event, key) {
+    const content = event.target.value; 
 
-  // console.log(text);
+    aux[key] = content;
+    contact[key] = content;
+
+    setData(contact);
+    setText(aux);
+
+    if (content === '') {
+      contact[key] = '';
+      setData(contact);
+    }
+  }
 
   return (
     <div>
@@ -36,8 +40,8 @@ const Form = (props) => {
             className='form-control'
             id='input-name'
             type='text'
-            value={text.shift() || ''}
-            onChange={handleChange}
+            value={text.name || data.name}
+            onChange={(e) => handleChange(e, 'name')}
             placeholder={'Name'}
             aria-label='Username'
             aria-describedby='basic-addon1'
@@ -49,8 +53,8 @@ const Form = (props) => {
             className='form-control'
             id='input-number'
             type='number'
-            value={text.shift() || ''}
-            onChange={handleChange}
+            value={text.phoneNumber || data.phoneNumber}
+            onChange={(e) => handleChange(e, 'phoneNumber')}
             placeholder='Numero'
             aria-label='Server'
             required
@@ -61,8 +65,8 @@ const Form = (props) => {
             className='form-control'
             id='input-email'
             type='email'
-            value={text.shift() || ''}
-            onChange={handleChange}
+            value={text.email || data.email}
+            onChange={(e) => handleChange(e, 'email')}
             placeholder='Email'
             aria-label='Username'
             required
@@ -74,13 +78,13 @@ const Form = (props) => {
             className='form-control'
             id='input-date'
             type='date'
-            value={text.shift() || ''}
-            onChange={handleChange}
+            value={text.birthDate || data.birthDate}
+            onChange={(e) => handleChange(e, 'birthDate')}
             aria-label='With textarea'
             required
           />
         </div>
-        <Link className='btn btn-outline-info form-submit' type='submit'>
+        <Link className='btn btn-outline-info form-submit' type='submit' onClick={}>
           Send
         </Link>
       </form>
