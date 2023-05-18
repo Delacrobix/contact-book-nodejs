@@ -1,13 +1,17 @@
 import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Queries } from '../Controllers/queries/queries';
-import { useQuery } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
+import ErrorAlert from '../components/errorAlert';
 
 const Detail = () => {
   const navigation = useNavigate();
   const location = useLocation();
   const { id } = location.state;
   const { data, loading, error } = useQuery(Queries.findOneQuery(id));
+  const [deleteMutation, delObjectResponse] = useMutation(
+    Queries.deleteMutation(id)
+  );
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>ERROR</p>;
@@ -15,8 +19,30 @@ const Detail = () => {
   const contact = data.getContact;
   const { name, phoneNumber, email, birthDate } = contact;
 
-  function handleClick() {
+  function handleClickEdit() {
     navigation('/', { state: { contact } });
+  }
+
+  function handleClickDelete(event) {
+    event.preventDefault();
+
+    deleteMutation({ variables: { id } })
+      .then((response) => {
+        alert(response.data.deleteById);
+
+        navigation('/contacts');
+      })
+      .catch((error) => {
+        console.error(error);
+        return <ErrorAlert />;
+      });
+
+    if (delObjectResponse.loading) {
+      return <p>loading...</p>;
+    }
+    if (delObjectResponse.error) {
+      return <ErrorAlert />;
+    }
   }
 
   return (
@@ -33,20 +59,20 @@ const Detail = () => {
                   <p
                     className='btn btn-outline-info'
                     id='edit-btn'
-                    onClick={handleClick}
+                    onClick={handleClickEdit}
                   >
                     Edit
                   </p>
                 </li>
                 <li className='nav-item'>
-                  <Link
+                  <p
                     className='btn btn-outline-info'
                     id='delete-btn'
                     type='input'
-                    to={'/contacts'}
+                    onClick={handleClickDelete}
                   >
                     Delete
-                  </Link>
+                  </p>
                 </li>
               </ul>
             </div>

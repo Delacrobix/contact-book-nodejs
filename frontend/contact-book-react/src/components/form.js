@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { Queries } from '../Controllers/queries/queries';
+import ErrorAlert from './errorAlert';
 
 const Form = () => {
   const [formData, setFormData] = useState({});
   const [insertMutation, { error, loading }] = useMutation(
     Queries.insertMutation(formData)
   );
+  const navigation = useNavigate();
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -17,32 +20,32 @@ const Form = () => {
     }));
   }
 
-  function HandleSubmit(event) {
+  function handleSubmit(event) {
     event.preventDefault();
 
     insertMutation({ variables: { formData } })
       .then((response) => {
-        console.log('Mutation response: ', response);
+        alert(response.data.insert);
+        navigation('/contacts');
       })
       .catch((error) => {
-        console.error('Mutation error: ', error);
+        console.error(error);
+        return <ErrorAlert />;
       });
 
     if (loading) {
       return <p>loading...</p>;
     }
     if (error) {
-      return <p>ERROR</p>;
+      return <ErrorAlert />;
     }
-
-    alert(insertMutation.data);
   }
 
   return (
     <div>
       <form
         className='container text-center form-contact'
-        onSubmit={HandleSubmit}
+        onSubmit={handleSubmit}
       >
         <h4>Ingrese los valores solicitados</h4>
         <div className='input-group mb-3'>

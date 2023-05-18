@@ -1,4 +1,4 @@
-import { GraphQLID, GraphQLList, GraphQLString } from 'graphql';
+import { GraphQLID, GraphQLList } from 'graphql';
 import { ContactType } from './types';
 import {
   getAll,

@@ -7,6 +7,8 @@ import {
   HttpLink,
   InMemoryCache,
 } from '@apollo/client';
+import { split } from '@apollo/client/link/core';
+import { getMainDefinition } from '@apollo/client/utilities';
 import App from './App';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -16,11 +18,18 @@ import './assets/css/main.css';
 
 const GRAPHQL_API = process.env.REACT_APP_GRAPHQL_API;
 
+const httpLink = new HttpLink({
+  uri: GRAPHQL_API,
+});
+
+const link = split(({ query }) => {
+  const definition = getMainDefinition(query);
+  return definition.kind === 'OperationDefinition';
+}, httpLink);
+
 const client = new ApolloClient({
+  link,
   cache: new InMemoryCache(),
-  link: new HttpLink({
-    uri: GRAPHQL_API,
-  }),
 });
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

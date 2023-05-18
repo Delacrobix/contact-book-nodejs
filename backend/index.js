@@ -1,19 +1,24 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
-// import { router } from './src/routes/routes';
 import { createHandler } from 'graphql-http/lib/use/express';
+import { createServer as createHttpServer } from 'http';
 import '@babel/register';
-
-import('./src/server');
 
 dotenv.config({ path: '.env.local' });
 export const app = express();
 
+//HTTP SERVER CONFIG
+const PORT = process.env.HTTP_PORT;
+const httpServer = createHttpServer(app);
+
+httpServer.listen({ port: PORT }, () => {
+  console.log('Server listening on port ' + PORT);
+});
+
 //With this sentence we can to charge that file later than the dotenv configuration
 const { schema } = require('./src/graphql/schema');
 
-// app.use(router);
 app.use(cors());
 app.use(
   '/graphql',

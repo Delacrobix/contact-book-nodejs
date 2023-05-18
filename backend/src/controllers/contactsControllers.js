@@ -1,4 +1,7 @@
 import { db } from '../db/mysqlConnection';
+import { PubSub } from 'graphql-subscriptions';
+
+const pubSub = new PubSub();
 
 export async function getAll() {
   const [result] = await db.query(`SELECT * FROM contact`);
@@ -58,4 +61,10 @@ export function convertSQLDateToString(date) {
   const dateString = `${year}-${month}-${day}`;
 
   return dateString;
+}
+
+export async function updateContacts() {
+  const contacts = await getAll();
+
+  pubSub.publish('CONTACTS_UPDATE', { contacts });
 }

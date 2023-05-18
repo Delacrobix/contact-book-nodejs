@@ -2,6 +2,7 @@ import React from 'react';
 import Form from '../components/form';
 import FormEdit from '../components/formEdit';
 import { useLocation } from 'react-router-dom';
+import ErrorAlert from '../components/errorAlert';
 
 const ContactForm = () => {
   const location = useLocation();

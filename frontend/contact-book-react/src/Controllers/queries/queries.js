@@ -55,7 +55,7 @@ const getAllQuery = gql`
 
 const deleteMutation = (id) => {
   return gql`
-    mutation DeleteById {
+    mutation {
       deleteById(id: ${id})
     }
   `;
