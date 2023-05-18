@@ -1,13 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Card from '../components/card';
-import { useQuery } from '@apollo/client';
+import { useSubscription } from '@apollo/client';
 import { Queries } from '../Controllers/queries/queries';
 
 const ContactList = () => {
-  const { data, error, loading } = useQuery(Queries.getAllQuery);
+  const { data, error, loading } = useSubscription(Queries.getAllQuery);
+  const [contacts, setContacts] = useState([]);
 
-  if (loading) return <p> Loading... </p>;
-  if (error) return <p> Error.... </p>;
+  useEffect(() => {
+    if (data) {
+      setContacts(data.contactList);
+      console.log(contacts);
+    }
+  }, [data, contacts]);
+
+  if (loading) {
+    return <p> Loading... </p>;
+  }
+  if (error) {
+    return <p> Error.... </p>;
+  }
 
   return (
     <div>
@@ -15,7 +27,7 @@ const ContactList = () => {
         <h1>CONTACT LIST</h1>
       </div>
       <div className='row'>
-        {data.contactList.map((contact) => {
+        {contacts.map((contact) => {
           return <Card key={contact.id} contact={contact} />;
         })}
       </div>

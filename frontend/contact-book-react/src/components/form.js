@@ -1,48 +1,58 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useMutation } from '@apollo/client';
+import { Queries } from '../Controllers/queries/queries';
 
-const Form = (props) => {
-  const [data, setData] = useState({});
-  const [text, setText] = useState({});
-  const { contact } = props;
-  const aux = {
-    name: '',
-    phoneNumber: '',
-    email: '',
-    birthDate: '',
-  };
+const Form = () => {
+  const [formData, setFormData] = useState({});
+  const [insertMutation, { error, loading }] = useMutation(
+    Queries.insertMutation(formData)
+  );
 
-  useEffect(() => {
-    setData(contact);
-  }, [contact]);
+  function handleChange(event) {
+    const { name, value } = event.target;
 
-  function handleChange(event, key) {
-    const content = event.target.value; 
+    setFormData((data) => ({
+      ...data,
+      [name]: value,
+    }));
+  }
 
-    aux[key] = content;
-    contact[key] = content;
+  function HandleSubmit(event) {
+    event.preventDefault();
 
-    setData(contact);
-    setText(aux);
+    insertMutation({ variables: { formData } })
+      .then((response) => {
+        console.log('Mutation response: ', response);
+      })
+      .catch((error) => {
+        console.error('Mutation error: ', error);
+      });
 
-    if (content === '') {
-      contact[key] = '';
-      setData(contact);
+    if (loading) {
+      return <p>loading...</p>;
     }
+    if (error) {
+      return <p>ERROR</p>;
+    }
+
+    alert(insertMutation.data);
   }
 
   return (
     <div>
-      <form className='container text-center form-contact'>
+      <form
+        className='container text-center form-contact'
+        onSubmit={HandleSubmit}
+      >
         <h4>Ingrese los valores solicitados</h4>
         <div className='input-group mb-3'>
           <input
             className='form-control'
+            name='name'
             id='input-name'
             type='text'
-            value={text.name || data.name}
-            onChange={(e) => handleChange(e, 'name')}
-            placeholder={'Name'}
+            onChange={handleChange}
+            placeholder='Name'
             aria-label='Username'
             aria-describedby='basic-addon1'
             required
@@ -51,10 +61,10 @@ const Form = (props) => {
         <div className='input-group mb-3'>
           <input
             className='form-control'
+            name='phoneNumber'
             id='input-number'
             type='number'
-            value={text.phoneNumber || data.phoneNumber}
-            onChange={(e) => handleChange(e, 'phoneNumber')}
+            onChange={handleChange}
             placeholder='Numero'
             aria-label='Server'
             required
@@ -63,10 +73,10 @@ const Form = (props) => {
         <div className='input-group mb-3'>
           <input
             className='form-control'
+            name='email'
             id='input-email'
             type='email'
-            value={text.email || data.email}
-            onChange={(e) => handleChange(e, 'email')}
+            onChange={handleChange}
             placeholder='Email'
             aria-label='Username'
             required
@@ -76,17 +86,17 @@ const Form = (props) => {
           <span className='input-group-text'>Birth Date</span>
           <input
             className='form-control'
+            name='birthDate'
             id='input-date'
             type='date'
-            value={text.birthDate || data.birthDate}
-            onChange={(e) => handleChange(e, 'birthDate')}
+            onChange={handleChange}
             aria-label='With textarea'
             required
           />
         </div>
-        <Link className='btn btn-outline-info form-submit' type='submit' onClick={}>
+        <button className='btn btn-outline-info form-submit' type='submit'>
           Send
-        </Link>
+        </button>
       </form>
     </div>
   );

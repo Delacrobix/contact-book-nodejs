@@ -35,9 +35,19 @@ export async function insertContact(contact) {
     VALUES(?, ?, ?, ?)
   `;
 
-  const [result] = await db.query(query, [name, phoneNumber, email, birthDate]);
+  try {
+    const [result] = await db.query(query, [
+      name,
+      phoneNumber,
+      email,
+      birthDate,
+    ]);
 
-  return result;
+    return result;
+  } catch (err) {
+    console.error('SQL error inserting contact: ', err);
+    throw new Error('Error saving contact on database');
+  }
 }
 
 export function convertSQLDateToString(date) {

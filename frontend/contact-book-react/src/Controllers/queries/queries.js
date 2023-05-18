@@ -1,27 +1,27 @@
 import { gql } from '@apollo/client';
 
-const insertQuery = (contact) => {
+const insertMutation = (contact) => {
   return gql`
-    mutation Insert {
+    mutation {
       insert(
-        name: ${contact.name}
-        phoneNumber: ${contact.phoneNumber}
-        email: ${contact.email}
-        birthDate: ${contact.birthDate}
+        name: "${contact.name}"
+        phoneNumber: "${contact.phoneNumber}"
+        email: "${contact.email}"
+        birthDate: "${contact.birthDate}"
       )
     }
   `;
 };
 
-const editQuery = (id, contact) => {
+const editMutation = (id, contact) => {
   return gql`
-    mutation EditById {
+    mutation {
       editById(
-        id: ${id}
-        name: ${contact.name}
-        phoneNumber: ${contact.phoneNumber}
-        email: ${contact.email}
-        birthDate: ${contact.birthDate}
+        id: "${id}"
+        name: "${contact.name}"
+        phoneNumber: "${contact.phoneNumber}"
+        email: "${contact.email}"
+        birthDate: "${contact.birthDate}"
       )
     }
   `;
@@ -53,7 +53,7 @@ const getAllQuery = gql`
   }
 `;
 
-const deleteQuery = (id) => {
+const deleteMutation = (id) => {
   return gql`
     mutation DeleteById {
       deleteById(id: ${id})
@@ -62,9 +62,9 @@ const deleteQuery = (id) => {
 };
 
 export const Queries = {
-  insertQuery,
-  editQuery,
-  deleteQuery,
+  insertMutation,
+  editMutation,
+  deleteMutation,
   findOneQuery,
   getAllQuery,
 };
