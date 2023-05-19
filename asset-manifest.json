@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/contact-book-nodejs/static/css/main.7dd0065f.css",
+    "main.js": "/contact-book-nodejs/static/js/main.66ea4eee.js",
+    "static/js/787.905d204f.chunk.js": "/contact-book-nodejs/static/js/787.905d204f.chunk.js",
+    "index.html": "/contact-book-nodejs/index.html",
+    "main.7dd0065f.css.map": "/contact-book-nodejs/static/css/main.7dd0065f.css.map",
+    "main.66ea4eee.js.map": "/contact-book-nodejs/static/js/main.66ea4eee.js.map",
+    "787.905d204f.chunk.js.map": "/contact-book-nodejs/static/js/787.905d204f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7dd0065f.css",
+    "static/js/main.66ea4eee.js"
+  ]
+}
