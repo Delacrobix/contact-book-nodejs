@@ -26,7 +26,7 @@ const { schema } = require('./src/graphql/schema');
 // };
 
 // app.use(cors(corsOptions));
-app.use();
+app.use(cors());
 app.use(
   '/graphql',
   createHandler({
