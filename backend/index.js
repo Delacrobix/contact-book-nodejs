@@ -20,7 +20,7 @@ httpServer.listen({ port: PORT }, () => {
 const { schema } = require('./src/graphql/schema');
 
 const corsOptions = {
-  origin: 'https://delacrobix.github.io/contact-book-nodejs/',
+  origin: 'https://delacrobix.github.io',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 };
