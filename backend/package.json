@@ -1,8 +1,6 @@
 {
-  "homepage": "https://Delacrobix.github.io/contact-book-nodejs",
   "scripts": {
-    "start": "nodemon index.js --exec babel-node",
-    "deploy": "gh-pages -d build"
+    "start": "nodemon index.js --exec babel-node"
   },
   "dependencies": {
     "@babel/node": "^7.20.7",
