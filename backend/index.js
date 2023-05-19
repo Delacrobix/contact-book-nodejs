@@ -19,7 +19,13 @@ httpServer.listen({ port: PORT }, () => {
 //With this sentence we can to charge that file later than the dotenv configuration
 const { schema } = require('./src/graphql/schema');
 
-app.use(cors());
+const corsOptions = {
+  origin: 'https://delacrobix.github.io/contact-book-nodejs/',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+};
+
+app.use(cors(corsOptions));
 app.use(
   '/graphql',
   createHandler({
