@@ -24,7 +24,8 @@ const corsOptions = {
     'https://contact-book-nodejs.surge.sh',
     'https://delacrobix.github.io/contact-book-nodejs/',
   ],
-  optionsSuccessStatus: 200, // Opcional, código de estado para respuestas preflight (preflight responses)
+  optionsSuccessStatus: 200,
+  exposedHeaders: 'Access-Control-Allow-Origin',
 };
 
 // Aplicar el middleware CORS
