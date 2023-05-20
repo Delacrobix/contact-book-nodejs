@@ -19,7 +19,7 @@ app.listen({ port: PORT }, () => {
 const { schema } = require('./src/graphql/schema');
 
 const corsOptions = {
-  origin: [CORS_1],
+  origin: `${CORS_1}`,
   methods: 'POST',
 };
 
