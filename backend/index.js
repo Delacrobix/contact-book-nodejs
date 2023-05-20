@@ -10,9 +10,9 @@ export const app = express();
 
 //HTTP SERVER CONFIG
 const PORT = process.env.HTTP_PORT;
-const httpServer = createHttpServer(app);
+// const httpServer = createHttpServer(app);
 
-httpServer.listen({ port: PORT }, () => {
+app.listen({ port: PORT }, () => {
   console.log('Server listening on port ' + PORT);
 });
 
