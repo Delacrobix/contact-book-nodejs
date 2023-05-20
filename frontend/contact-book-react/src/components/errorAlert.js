@@ -3,10 +3,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const ErrorAlert = () => {
+  function handleClickReload() {
+    window.location.reload();
+  }
+
   return (
-    <section>
-      <div className='square_box box_three'></div>
-      <div className='square_box box_four'></div>
+    <section onClick={handleClickReload}>
       <div className='container mt-5'>
         <div className='row'>
           <div className='col-sm-12'>

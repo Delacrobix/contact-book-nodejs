@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Card from '../components/card';
 import { useQuery } from '@apollo/client';
-import { Queries } from '../Controllers/queries/queries';
+import { Queries } from '../Controllers/queries';
 import ErrorAlert from '../components/errorAlert';
 
 const ContactList = () => {
@@ -30,7 +30,7 @@ const ContactList = () => {
       <div className='tittle-container'>
         <h1>CONTACT LIST</h1>
       </div>
-      <div className='row'>
+      <div className='row card-contact-container'>
         {contacts.map((contact) => {
           return <Card key={contact.id} contact={contact} />;
         })}

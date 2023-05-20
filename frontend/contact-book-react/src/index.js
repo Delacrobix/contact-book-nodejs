@@ -14,7 +14,7 @@ import 'bootstrap/dist/js/bootstrap.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // CSS styles import
-import './assets/css/main.css';
+import './assets/css/styles.css';
 
 const GRAPHQL_API = process.env.REACT_APP_GRAPHQL_API;
 

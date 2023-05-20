@@ -1,21 +1,60 @@
-.row {
+.contact-card {
+  width: 100%;
+  max-width: 290px;
+  height: 70px;
+  background: #53565a;
+  border-radius: 20px;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: left;
+  backdrop-filter: blur(10px);
+  transition: 0.5s ease-in-out;
+  margin-left: 35px;
+  margin-top: 20px;
 }
-.row .card-contact-container {
-  padding: 25px;
-  max-width: 350px;
+.contact-card .profile-img {
+  width: 50px;
+  height: 50px;
+  margin-left: 10px;
+  border-radius: 110px;
+  background: linear-gradient(#00adb5, #0d6266);
+  margin-right: 3px;
 }
-.row .card-contact-container #detail-btn {
-  margin-top: 5px;
-  background-color: rgba(106, 176, 241, 0);
-  border: 1px solid #9b9b9b;
-  color: #362e3b;
+.contact-card .profile-img img {
+  width: 50px;
+  height: 50px;
+  border-radius: 100px;
 }
-.row .card-contact-container #detail-btn:hover {
-  background-color: rgb(173, 173, 173);
-  color: black;
+.contact-card .contact-information {
+  width: calc(100% - 90px);
+  margin-left: 10px;
+  color: #eeeeee;
+  font-family: "Poppins" sans-serif;
+}
+.contact-card .contact-information .textContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.contact-card .contact-information .textContent .h1-name {
+  font-size: 16px;
+  font-weight: bold;
+}
+.contact-card .contact-information .textContent .span {
+  font-size: 10px;
+}
+.contact-card .contact-information .phone {
+  margin-top: -5px;
+}
+.contact-card:hover {
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  background: #6f7072;
+  transform: scale(1.05);
+}
+.contact-card:hover > .img {
+  transition: 0.8 ease-in-out;
+  background: linear-gradient(#02c7d1, #147a80);
 }
 
 /*# sourceMappingURL=card.css.map */

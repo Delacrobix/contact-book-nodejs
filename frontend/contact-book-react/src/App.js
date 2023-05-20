@@ -1,18 +1,22 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import ContactForm from './pages/contactForm';
 import Navbar from './components/navbar';
+import Footer from './components/footer';
+import ContactForm from './pages/contactForm';
 import Detail from './pages/detail';
 import ContactList from './pages/contactList';
 
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path='/' element={<ContactForm />} />
-        <Route path='/detail/:id' element={<Detail />} />
-        <Route path='/contacts' element={<ContactList />} />
-      </Routes>
+      <div className='main-container'>
+        <Navbar />
+        <Routes>
+          <Route path='/home' element={<ContactForm />} />
+          <Route path='/detail/:name' element={<Detail />} />
+          <Route path='/contacts' element={<ContactList />} />
+        </Routes>
+      </div>
+      <Footer />
     </BrowserRouter>
   );
 }

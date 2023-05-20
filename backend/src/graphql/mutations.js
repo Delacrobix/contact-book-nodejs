@@ -18,16 +18,24 @@ export const insert = {
   async resolve(_, args) {
     const { name, phoneNumber, email, birthDate } = args;
 
+    if (
+      [name, phoneNumber, email, birthDate].some(
+        (value) => value === 'undefined'
+      )
+    ) {
+      return 'Some data is undefined';
+    }
+
     const date = new Date(birthDate);
     try {
-      const newContact = await insertContact({
+      await insertContact({
         name,
         phoneNumber,
         email,
         birthDate: date,
       });
 
-      console.log('New contact: ', newContact);
+      console.log('New contact added: ', name);
 
       return 'New contact inserted successfully';
     } catch (err) {
@@ -47,8 +55,14 @@ export const deleteById = {
   async resolve(_, args) {
     const { id } = args;
 
+    if (id === 'undefined') {
+      return 'Some data is undefined';
+    }
+
     try {
       await deleteContact(id);
+
+      console.log('Contact deleted');
 
       return 'Contact deleted successfully';
     } catch (err) {
@@ -71,14 +85,24 @@ export const editById = {
   async resolve(_, args) {
     const { id, name, phoneNumber, email, birthDate } = args;
 
+    if (
+      [id, name, phoneNumber, email, birthDate].some(
+        (value) => value === 'undefined'
+      )
+    ) {
+      return 'Some data is undefined';
+    }
+
     const date = new Date(birthDate);
     try {
-      await editContact(id, {
+      const newContact = await editContact(id, {
         name,
         phoneNumber,
         email,
         birthDate: date,
       });
+
+      console.log('Contact edited: ', name);
 
       return 'Contact edited successfully';
     } catch (err) {

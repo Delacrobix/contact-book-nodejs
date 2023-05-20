@@ -1,18 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@500&display=swap");
 .form-contact {
-  padding: 50px;
-  max-width: 800px;
+  padding: 3.2rem;
+  width: 50%;
 }
 .form-contact h4 {
   color: aliceblue;
 }
 .form-contact .form-control {
-  height: 60px;
+  height: 3.4rem;
 }
 .form-contact .form-submit {
-  margin: 20px;
-  width: 350px;
-  height: 40px;
+  width: 25%;
+  margin: 1.4rem;
+  height: 2.6rem;
   text-align: center;
   align-content: center;
   border: 1px solid #ccc;
@@ -25,8 +26,8 @@
 
 .contact-card {
   width: 100%;
-  max-width: 290px;
-  height: 70px;
+  max-width: 18%;
+  min-height: 5rem;
   background: #53565a;
   border-radius: 20px;
   display: flex;
@@ -62,14 +63,14 @@
   justify-content: space-between;
 }
 .contact-card .contact-information .textContent .h1-name {
-  font-size: 16px;
+  font-size: 1.5vh;
   font-weight: bold;
 }
 .contact-card .contact-information .textContent .span {
-  font-size: 10px;
+  font-size: 0.62rem;
 }
 .contact-card .contact-information .phone {
-  margin-top: -5px;
+  margin-top: -0.3rem;
 }
 .contact-card:hover {
   cursor: pointer;
@@ -85,28 +86,26 @@
 .menu-container {
   background-color: #393e46;
 }
-.menu-container .navbar-nav.me-auto.mb-2.mb-lg-0 {
-  font-size: 20px;
-}
 .menu-container .navigation-item {
   padding-left: 4em;
 }
 .menu-container .navigation-item .navigation-link {
   color: rgb(168, 168, 168);
+  font-size: 1.1em;
 }
 .menu-container .navigation-item .navigation-link:hover {
-  border-radius: 10px;
   color: #eeeeee;
 }
 
 .contact-detail-container {
+  margin-top: 5rem;
   display: grid;
   height: 100%;
   align-content: center;
   justify-content: center;
 }
 .contact-detail-container .card-contact-detail {
-  width: 600px;
+  width: 30rem;
   color: #eeeeee;
 }
 .contact-detail-container .card-contact-detail .card-header {
@@ -137,7 +136,7 @@
   background: #393e46;
 }
 .contact-detail-container .card-contact-detail .card-body #return-button {
-  margin-top: 15px;
+  margin-top: 0.95rem;
   background-color: rgba(90, 90, 90, 0);
   border: solid 1px rgb(90, 90, 90);
   color: #eeeeee;
@@ -228,22 +227,184 @@
 }
 .card-contact-container {
   max-width: 100%;
-  padding: 10px 10px 10px 10px;
   justify-content: center;
 }
 
+.footer-container {
+  background-color: #393e46;
+  margin-top: 4rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.footer-container .section-padding {
+  padding: 2rem 4rem;
+}
+.footer-container .sub-footer {
+  display: flex;
+  flex-direction: column;
+}
+.footer-container .sub-footer .sub-footer-links {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+.footer-container .sub-footer .sub-footer-links-div {
+  padding-left: 25px;
+  padding-right: 25px;
+  width: 230px;
+  margin: 0.5rem;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  color: aliceblue;
+}
+.footer-container .sub-footer .sub-footer-links-div .footer-h4 {
+  font-size: 14px;
+  line-height: 17px;
+  margin-bottom: 0.9rem;
+}
+.footer-container .sub-footer .sub-footer-links-div .social-media {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  padding: 5px;
+  width: 250px;
+}
+.footer-container .sub-footer .sub-footer-links-div .social-media .footer-p {
+  font-size: 12px;
+  line-height: 15px;
+  margin: 0.5rem 0;
+  cursor: pointer;
+}
+.footer-container .sub-footer .sub-footer-links-div .social-media .footer-p:hover p {
+  color: #00adb5;
+}
+.footer-container .sub-footer .sub-footer-links-div .social-media .footer-p:hover img {
+  transform: scale(1.05);
+}
+.footer-container .sub-footer .sub-footer-links-div .social-media .footer-p a {
+  color: aliceblue;
+  text-decoration: none;
+}
+.footer-container .sub-footer .sub-footer-links-div .social-media .footer-p a .footer-img {
+  width: 60%;
+}
+.footer-container .sub-footer .sub-footer-links-div .social-media .footer-p a .portfolio-img {
+  width: 30%;
+}
+.footer-container .sub-footer .sub-footer-links-div .social-media .footer-p a p {
+  margin-bottom: -0.5px;
+}
+.footer-container .sub-footer .sub-footer-links-div .social-media .portfolio-footer-p {
+  margin-left: -23px;
+}
+
+@media (max-width: 1200px) {
+  .form-contact {
+    padding: 2rem;
+    width: 70%;
+  }
+  .contact-card {
+    max-width: 25%;
+    max-height: 10%;
+    margin: 1rem;
+    padding: 1rem;
+  }
+  .phone {
+    font-size: 0.9rem;
+  }
+}
+@media (max-width: 992px) {
+  .form-contact {
+    padding: 0rem;
+    width: 80%;
+  }
+  .contact-card {
+    max-width: 25%;
+  }
+  .contact-card .contact-information .h1-name {
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 890px) {
+  .contact-card {
+    max-width: 30% !important;
+  }
+  .contact-card .contact-information h1-name {
+    font-size: 1rem;
+  }
+  .contact-card .contact-information .phone {
+    font-size: 0.8rem;
+  }
+  .contact-card .contact-information .span {
+    visibility: hidden;
+    display: none !important;
+  }
+}
+@media (max-width: 768px) {
+  .tittle-container h1 {
+    font-size: 2.5rem !important;
+  }
+  .contact-card {
+    max-width: 35% !important;
+  }
+}
+@media screen and (max-width: 550px) {
+  .tittle-container h1 {
+    font-size: 2.2rem !important;
+  }
+  .detail-page-container {
+    width: 100%;
+  }
+  .detail-page-container .contact-detail-container {
+    margin-top: 0rem;
+  }
+  .detail-page-container .contact-detail-container .text-center {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+  .contact-card {
+    max-width: 65% !important;
+  }
+  .sub-footer-links div {
+    margin: 1rem 0 !important;
+  }
+  .sub-footer-btn p {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .detail-page-container {
+    max-width: 100%;
+  }
+  .detail-page-container .text-center {
+    max-width: 75%;
+    margin: 0 auto;
+  }
+}
 body {
   background-color: #222831;
   font-family: "Montserrat", sans-serif;
+  min-height: 100%;
 }
-body .tittle-container {
+body .main-container .tittle-container {
+  font-family: "IBM Plex Sans Thai Looped", sans-serif;
   display: grid;
   width: 100%;
   justify-content: center;
   color: #eeeeee;
-  font-size: 40px;
-  margin-top: 2rem;
+  margin-top: 3rem;
   margin-bottom: 2rem;
 }
+body .main-container .tittle-container h1 {
+  font-size: 3rem;
+}
 
-/*# sourceMappingURL=main.css.map */
+/*# sourceMappingURL=styles.css.map */
