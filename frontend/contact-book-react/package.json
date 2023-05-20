@@ -1,6 +1,5 @@
 {
   "name": "contact-book-react",
-  "homepage": "https://Delacrobix.github.io/contact-book-nodejs",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
