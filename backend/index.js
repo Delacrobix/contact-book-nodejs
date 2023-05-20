@@ -22,8 +22,11 @@ const { schema } = require('./src/graphql/schema');
 const corsOptions = {
   origin: [
     'http://contact-book-nodejs.surge.sh/',
+    'https://contact-book-nodejs.surge.sh/',
     'http://delacrobix.github.io/contact-book-nodejs/',
+    'https://delacrobix.github.io/contact-book-nodejs/',
     'https://delacrobix.github.io/',
+    'http://delacrobix.github.io/',
     'http://localhost:3000',
   ],
   methods: 'POST',
