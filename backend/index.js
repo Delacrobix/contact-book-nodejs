@@ -34,7 +34,7 @@ const corsOptions = {
   exposedHeaders: 'Access-Control-Allow-Origin',
 };
 
-app.use('/graphql', cors(corsOptions));
+app.use(cors());
 app.use(
   '/graphql',
   createHandler({
