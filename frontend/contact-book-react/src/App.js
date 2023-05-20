@@ -11,9 +11,9 @@ function App() {
       <div className='main-container'>
         <Navbar />
         <Routes>
-          <Route path='/home/*' element={<ContactForm />} />
-          <Route path='/detail/:name/*' element={<Detail />} />
-          <Route path='/contacts/*' element={<ContactList />} />
+          <Route path='/home/' element={<ContactForm />} />
+          <Route path='/detail/:name/' element={<Detail />} />
+          <Route path='/contacts/' element={<ContactList />} />
         </Routes>
       </div>
       <Footer />

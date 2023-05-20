@@ -233,12 +233,13 @@
 .footer-container {
   background-color: #393e46;
   margin-top: 4rem;
+  position: unset;
   left: 0;
   right: 0;
   bottom: 0;
 }
 .footer-container .section-padding {
-  padding: 2rem 4rem;
+  padding: 4rem 4rem;
 }
 .footer-container .sub-footer {
   display: flex;
@@ -392,7 +393,9 @@
 body {
   background-color: #222831;
   font-family: "Montserrat", sans-serif;
-  min-height: 100%;
+}
+body .main-container {
+  min-height: 70vh;
 }
 body .main-container .tittle-container {
   font-family: "IBM Plex Sans Thai Looped", sans-serif;

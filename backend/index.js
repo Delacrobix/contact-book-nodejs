@@ -21,15 +21,15 @@ const { schema } = require('./src/graphql/schema');
 
 const corsOptions = {
   origin: [
-    'https://contact-book-nodejs.surge.sh',
+    'https://contact-book-nodejs.surge.sh/',
     'https://delacrobix.github.io/contact-book-nodejs/',
+    'http://localhost:3000',
   ],
+  methods: 'POST',
   optionsSuccessStatus: 200,
-  exposedHeaders: 'Access-Control-Allow-Origin',
 };
 
-// Aplicar el middleware CORS
-app.use(cors(corsOptions));
+app.use('/graphql', cors(corsOptions));
 app.use(
   '/graphql',
   createHandler({
