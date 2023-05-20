@@ -16,17 +16,19 @@ httpServer.listen({ port: PORT }, () => {
   console.log('Server listening on port ' + PORT);
 });
 
-//With this sentence we can to charge that file later than the dotenv configuration
+//With this sentence we can to charge this file later than the dotenv configuration
 const { schema } = require('./src/graphql/schema');
 
 const corsOptions = {
   origin: [
-    'https://contact-book-nodejs.surge.sh/',
-    'https://delacrobix.github.io/contact-book-nodejs/',
+    'http://contact-book-nodejs.surge.sh/',
+    'http://delacrobix.github.io/contact-book-nodejs/',
+    'https://delacrobix.github.io/',
     'http://localhost:3000',
   ],
   methods: 'POST',
   optionsSuccessStatus: 200,
+  exposedHeaders: 'Access-Control-Allow-Origin',
 };
 
 app.use('/graphql', cors(corsOptions));
