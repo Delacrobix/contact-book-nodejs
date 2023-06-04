@@ -18,7 +18,6 @@ const ContactList = () => {
     refetch();
   }, [data, refetch]);
 
-  return <Loading />;
   if (loading) {
     return <Loading />;
   }
