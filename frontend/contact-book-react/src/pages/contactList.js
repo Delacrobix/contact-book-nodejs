@@ -3,6 +3,7 @@ import Card from '../components/card';
 import { useQuery } from '@apollo/client';
 import { Queries } from '../Controllers/queries';
 import ErrorAlert from '../components/errorAlert';
+import Loading from '../components/loading';
 
 const ContactList = () => {
   const { data, error, loading, refetch } = useQuery(Queries.getAllQuery);
@@ -17,8 +18,9 @@ const ContactList = () => {
     refetch();
   }, [data, refetch]);
 
+  return <Loading />;
   if (loading) {
-    return <p> Loading... </p>;
+    return <Loading />;
   }
 
   if (error) {
