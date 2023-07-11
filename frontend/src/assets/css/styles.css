@@ -1,92 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@500&display=swap");
-@media (max-width: 1200px) {
-  .form-contact {
-    padding: 2rem;
-    width: 70%;
-  }
-  .contact-card {
-    max-width: 25%;
-    max-height: 10%;
-    margin: 1rem;
-    padding: 1rem;
-  }
-  .phone {
-    font-size: 0.9rem;
-  }
-}
-@media (max-width: 992px) {
-  .form-contact {
-    padding: 0rem;
-    width: 80%;
-  }
-  .contact-card {
-    max-width: 25%;
-  }
-  .contact-card .contact-information .h1-name {
-    font-size: 0.8rem;
-  }
-}
-@media (max-width: 890px) {
-  .loading-animation-container {
-    margin-top: 25%;
-  }
-  .contact-card {
-    max-width: 30% !important;
-  }
-  .contact-card .contact-information h1-name {
-    font-size: 1rem;
-  }
-  .contact-card .contact-information .phone {
-    font-size: 0.8rem;
-  }
-  .contact-card .contact-information .span {
-    visibility: hidden;
-    display: none !important;
-  }
-}
-@media (max-width: 768px) {
-  .tittle-container h1 {
-    font-size: 2.5rem !important;
-  }
-  .contact-card {
-    max-width: 35% !important;
-  }
-}
-@media screen and (max-width: 550px) {
-  .tittle-container h1 {
-    font-size: 2.2rem !important;
-  }
-  .detail-page-container {
-    width: 100%;
-  }
-  .detail-page-container .contact-detail-container {
-    margin-top: 0rem;
-  }
-  .detail-page-container .contact-detail-container .text-center {
-    max-width: 80%;
-    margin: 0 auto;
-  }
-  .contact-card {
-    max-width: 65% !important;
-  }
-  .sub-footer-links div {
-    margin: 1rem 0 !important;
-  }
-  .sub-footer-btn p {
-    font-size: 14px;
-    line-height: 20px;
-  }
-}
-@media screen and (max-width: 450px) {
-  .detail-page-container {
-    max-width: 100%;
-  }
-  .detail-page-container .text-center {
-    max-width: 75%;
-    margin: 0 auto;
-  }
-}
 .contact-detail-container {
   margin-top: 5rem;
   display: grid;
@@ -301,8 +214,8 @@
   height: 3.4rem;
 }
 .form-contact .form-submit {
-  width: 25%;
   margin: 1.4rem;
+  width: 25%;
   height: 2.6rem;
   text-align: center;
   align-content: center;
@@ -426,11 +339,6 @@
   text-shadow: none;
 }
 
-/**
-* ----------------------------------------
-* animation blink-1
-* ----------------------------------------
-*/
 @-webkit-keyframes blink-1 {
   0%, 50%, 100% {
     opacity: 1;
@@ -445,6 +353,101 @@
   }
   25%, 75% {
     opacity: 0;
+  }
+}
+@media (max-width: 1200px) {
+  .form-contact {
+    padding: 2rem;
+    width: 70%;
+  }
+  .contact-card {
+    max-width: 25%;
+    max-height: 10%;
+    margin: 1rem;
+    padding: 1rem;
+  }
+  .phone {
+    font-size: 0.9rem;
+  }
+}
+@media (max-width: 992px) {
+  .form-contact {
+    padding: 0;
+    width: 80%;
+  }
+  .form-contact .form-submit {
+    height: 3.5rem;
+    width: 35%;
+  }
+  .contact-card {
+    max-width: 25%;
+  }
+  .contact-card .contact-information .h1-name {
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 890px) {
+  .loading-animation-container {
+    margin-top: 25%;
+  }
+  .contact-card {
+    max-width: 30% !important;
+  }
+  .contact-card .contact-information h1-name {
+    font-size: 1rem;
+  }
+  .contact-card .contact-information .phone {
+    font-size: 0.8rem;
+  }
+  .contact-card .contact-information .span {
+    visibility: hidden;
+    display: none !important;
+  }
+}
+@media (max-width: 768px) {
+  .tittle-container h1 {
+    font-size: 2.5rem !important;
+  }
+  .contact-card {
+    max-width: 35% !important;
+  }
+}
+@media screen and (max-width: 550px) {
+  .form-contact .form-submit {
+    margin: 1.5rem 0 0 0;
+    width: 100%;
+  }
+  .tittle-container h1 {
+    font-size: 2.2rem !important;
+  }
+  .detail-page-container {
+    width: 100%;
+  }
+  .detail-page-container .contact-detail-container {
+    margin-top: 0rem;
+  }
+  .detail-page-container .contact-detail-container .text-center {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+  .contact-card {
+    max-width: 65% !important;
+  }
+  .sub-footer-links div {
+    margin: 1rem 0 !important;
+  }
+  .sub-footer-btn p {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .detail-page-container {
+    max-width: 100%;
+  }
+  .detail-page-container .text-center {
+    max-width: 75%;
+    margin: 0 auto;
   }
 }
 body {
@@ -464,6 +467,7 @@ body .main-container .tittle-container {
   margin-bottom: 2rem;
 }
 body .main-container .tittle-container h1 {
+  text-align: center;
   font-size: 3rem;
 }
 

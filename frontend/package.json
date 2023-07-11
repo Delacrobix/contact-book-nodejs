@@ -28,7 +28,9 @@
     "test": "react-scripts test",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "watch-sass": "sass --watch src/assets/sass/main.scss:src/assets/css/styles.css",
+    "dev": "concurrently \"npm run watch-sass\" \"npm run start\""
   },
   "eslintConfig": {
     "extends": [
@@ -47,5 +49,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
   }
 }
