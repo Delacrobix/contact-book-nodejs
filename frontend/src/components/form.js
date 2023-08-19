@@ -67,7 +67,7 @@ const Form = () => {
           id='input-number'
           type='number'
           onChange={handleChange}
-          placeholder='Numero'
+          placeholder='Phone number'
           aria-label='Server'
           required
         />

@@ -55,7 +55,7 @@ const Detail = () => {
   return (
     <div className='detail-page-container'>
       <div className='tittle-container'>
-        <h1>CONTACT INFORMATION</h1>
+        <h2>CONTACT INFORMATION</h2>
       </div>
       <div className='contact-detail-container'>
         <div className='card-contact-detail'>
@@ -89,7 +89,7 @@ const Detail = () => {
                 <span className='text-center'>{' ' + name}</span>
               </div>
               <div>
-                <label className='fw-bold'>Number: </label>
+                <label className='fw-bold'>Phone number: </label>
                 <span className='text-center'>{' ' + phoneNumber}</span>
               </div>
               <div>

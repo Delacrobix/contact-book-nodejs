@@ -10,7 +10,7 @@ const Footer = () => {
       <div className='sub-footer section-padding'>
         <div className='sub-footer-links'>
           <div className='sub-footer-links-div'>
-            <h4 className='footer-h4'>Site build by: </h4>
+            <h4 className='footer-h4'>Site built by: </h4>
             <p> Jeffrey S. Rerín</p>
           </div>
           <div className='sub-footer-links-div'>
@@ -42,7 +42,7 @@ const Footer = () => {
                   target='_blank'
                   rel='noopener noreferrer'
                 >
-                  <p>Portafolio</p>
+                  <p>Portfolio</p>
                   <img
                     className='footer-img portfolio-img'
                     src={myWebsite}
