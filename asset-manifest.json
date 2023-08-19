@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/contact-book-nodejs/static/css/main.6f39afe9.css",
-    "main.js": "/contact-book-nodejs/static/js/main.cf16fe35.js",
+    "main.css": "/contact-book-nodejs/static/css/main.f90254fc.css",
+    "main.js": "/contact-book-nodejs/static/js/main.461d0d93.js",
     "static/js/787.905d204f.chunk.js": "/contact-book-nodejs/static/js/787.905d204f.chunk.js",
     "static/media/my website.png": "/contact-book-nodejs/static/media/my website.74b596bd64da2b91fcdd.png",
     "index.html": "/contact-book-nodejs/index.html",
-    "main.6f39afe9.css.map": "/contact-book-nodejs/static/css/main.6f39afe9.css.map",
-    "main.cf16fe35.js.map": "/contact-book-nodejs/static/js/main.cf16fe35.js.map",
+    "main.f90254fc.css.map": "/contact-book-nodejs/static/css/main.f90254fc.css.map",
+    "main.461d0d93.js.map": "/contact-book-nodejs/static/js/main.461d0d93.js.map",
     "787.905d204f.chunk.js.map": "/contact-book-nodejs/static/js/787.905d204f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6f39afe9.css",
-    "static/js/main.cf16fe35.js"
+    "static/css/main.f90254fc.css",
+    "static/js/main.461d0d93.js"
   ]
 }
